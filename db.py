@@ -2,7 +2,7 @@ from peewee import *
 
 db = SqliteDatabase('db.db')
 
-
+#
 class BaseModel(Model):
     class Meta:
         database = db
@@ -43,6 +43,10 @@ class PaymentToVacation(BaseModel):
     payment = ForeignKeyField(Payment)
     vacation = ForeignKeyField(Vacation)
 
+# TEST
+class User(BaseModel):
+    login=TextField()
+    password=TextField()
 
 db.create_tables([
     Position,
@@ -52,4 +56,5 @@ db.create_tables([
     Payment,
     PaymentToBonus,
     PaymentToVacation,
+    User
 ])
